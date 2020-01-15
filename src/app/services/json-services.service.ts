@@ -26,4 +26,10 @@ export class JsonServicesService {
     return this.getQuery(`posts/${id}`);
 
   }
+
+  getComments(id: number) {
+
+    return this.getQuery(`comments?postId=${id}`);
+
+  }
 }

@@ -1,0 +1,10 @@
+<div class="card">
+  <h5 class="card-header">Comentarios</h5>
+  <div class="card-body">
+    <div class="card" *ngFor="let comment of comments" style="margin-bottom: 10px;">
+      <h5 class="card-title">{{comment.name}}t</h5>
+      <p class="card-text">{{comment.body}}</p>
+    </div>
+    <button class="btn btn-primary" (click)="emitDate()">emitir fecha</button>
+  </div>
+</div>

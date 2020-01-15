@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { JsonServicesService } from 'src/app/services/json-services.service';
 
 @Component({
@@ -9,17 +9,22 @@ import { JsonServicesService } from 'src/app/services/json-services.service';
 })
 export class PostComponent implements OnInit {
   id: any;
-  post: any;
+  post: any = {};
+  date: any = 'sin fecha';
   constructor(
-      private router: Router,
       private route: ActivatedRoute,
       private json: JsonServicesService
     ) {
-    //   this.route.paramMap.subscribe(data => {
-    //   this.id = data.get("id");
-    // });
-    json.getPost(1).subscribe(data => console.log(data) );
+    this.route.params.subscribe(params => {
+      console.log(params['id']);
+      this.getPost(Number(params.id));
+    });
+  }
 
+  getPost(id: number) {
+    this.json.getPost(id).subscribe(data => {
+      this.post = data;
+    });
   }
 
   ngOnInit() {
