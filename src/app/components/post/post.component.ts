@@ -16,7 +16,6 @@ export class PostComponent implements OnInit {
       private json: JsonServicesService
     ) {
     this.route.params.subscribe(params => {
-      console.log(params['id']);
       this.getPost(Number(params.id));
     });
   }

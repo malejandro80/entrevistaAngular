@@ -35,9 +35,6 @@ export class NotFoundComponent implements OnInit {
           transform: "translate(0px,0px)",
           transition: "all .7s"
         });
-        $timeout(function () {
-          $('.parallax [class*="wave"]').css("transition", "");
-        }, 700);
       };
     $(document).ready(function () {
       $(".not-found").on("mousemove", parallax);
